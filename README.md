@@ -3,10 +3,9 @@
 This project helps you set up a minecraft-server docker container that uploads the server data to google drive whenever the machine shuts down.
 
 ### TODO:
-Figure out why there are conflicts when trying to upload server data. Find a safe way. --> resolved by just keeping the local copy
-
-Not enough time to upload. Needs more time to shutdown in order to actually update.
-
+- Need entirely new backup strategy. Gdrive tool does not work anymore. Need to take another route for automatic backups : (
+- server.jar should not be posted to repo, but update command does not work without it. There is surely a better way. 
+- 
 
 ## Installation
 *Note: this instructions were tested on amazon linux.*
