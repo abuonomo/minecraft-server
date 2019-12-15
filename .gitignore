@@ -1,0 +1,12 @@
+server/*
+!server/.gitkeep
+server.jar
+
+gdrive
+*.bak
+gdrive-linux-x64
+
+env
+.gdrive
+
+scratch/*
