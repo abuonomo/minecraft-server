@@ -4,6 +4,7 @@ server/*
 gdrive
 *.bak
 gdrive-linux-x64
+server.jar
 
 env
 .gdrive

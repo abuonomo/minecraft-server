@@ -14,6 +14,11 @@ Not enough time to upload. Needs more time to shutdown in order to actually upda
 This project requires Docker and GNU Make.
 
 Then, you can see some options by running:
+First, make an env file with:
+```
+touch env
+```
+
 ```bash
 make help
 ```
