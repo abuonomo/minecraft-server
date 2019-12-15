@@ -8,8 +8,10 @@ export $(shell sed 's/=.*//' env)
 MKFILE_PATH := $(abspath $(firstword $(MAKEFILE_LIST)))
 MAKE_DIR := $(dir $(MKFILE_PATH))
 
-build: ## download and configure requirements
+gdrive: ## download gdrive tool 
 	wget https://github.com/gdrive-org/gdrive/releases/download/2.1.0/gdrive-linux-x64
+
+build: ## build docker image
 	docker build -t minecraft-server .
 
 debug: ## get an interactive shell in the docker container
@@ -44,7 +46,7 @@ backup: ## backup to remote drive directory
 update: ## download latest server jar
 	bash updatemcjar.sh -y --jar-path server.jar
 
-run: ## run the server
+run-dev: ## remove last container named "minecraft-server" and then run the server
 	docker rm minecraft-server
 	docker run -it --name minecraft-server \
 		-e BACKUP_GDRIVE_LOC=$(BACKUP_GDRIVE_LOC) \
@@ -52,6 +54,15 @@ run: ## run the server
 		-v $(MAKE_DIR)/server:/home/server/ \
 		-v $(MAKE_DIR)/.gdrive:/root/.gdrive/ \
 		minecraft-server:latest
+
+run: ## Run the server as daemon and use auto-restarts
+	docker run -d --restart always --name \
+		-e BACKUP_GDRIVE_LOC=$(BACKUP_GDRIVE_LOC) \
+		-p 25565:25565 \
+		-v $(MAKE_DIR)/server:/home/server/ \
+		-v $(MAKE_DIR)/.gdrive:/root/.gdrive/ \
+		minecraft-server:latest
+
 	
 clean: ## stop server, remove docker container, delete image, remove .gdrive folder
 	docker stop minecraft-server

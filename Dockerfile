@@ -12,3 +12,5 @@ RUN ln ./gdrive /usr/local/bin/gdrive
 COPY server.jar ./
 
 RUN mkdir server
+
+CMD cd server && java -Xmx2048M -Xms1024M -jar ../server.jar nogui
