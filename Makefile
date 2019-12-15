@@ -62,6 +62,7 @@ run: ## Run the server as daemon and use auto-restarts
 		-v $(MAKE_DIR)/server:/home/server/ \
 		-v $(MAKE_DIR)/.gdrive:/root/.gdrive/ \
 		minecraft-server:latest
+	@echo "See logs with \"docker logs -f minecraft-server\""
 
 	
 clean: ## stop server, remove docker container, delete image, remove .gdrive folder
