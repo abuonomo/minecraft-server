@@ -56,7 +56,7 @@ run-dev: ## remove last container named "minecraft-server" and then run the serv
 		minecraft-server:latest
 
 run: ## Run the server as daemon and use auto-restarts
-	docker run -d --restart always --name \
+	docker run -d --restart always\
 		-e BACKUP_GDRIVE_LOC=$(BACKUP_GDRIVE_LOC) \
 		-p 25565:25565 \
 		-v $(MAKE_DIR)/server:/home/server/ \
