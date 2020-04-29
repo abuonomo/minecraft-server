@@ -5,11 +5,14 @@
 
 MKFILE_PATH := $(abspath $(firstword $(MAKEFILE_LIST)))
 MAKE_DIR := $(dir $(MKFILE_PATH))
+SHASUM=sha1sum
 
 backup: ## backup to remote drive directory 
 	@echo "Do a backup"
 
 update: ## download latest server jar
+	alias sha1sum=$(SHASUM); \
+	sha1sum server.jar; \
 	bash updatemcjar.sh -y --jar-path server.jar
 
 run: ## Run the server as daemon and use auto-restarts
