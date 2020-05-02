@@ -2,10 +2,8 @@
 .DEFAULT_GOAL := help
 .PHONY: help requirements drive authorize info backup update run clean
 
-
 MKFILE_PATH := $(abspath $(firstword $(MAKEFILE_LIST)))
 MAKE_DIR := $(dir $(MKFILE_PATH))
-SHASUM=sha1sum
 PAPER_URL=https://papermc.io/api/v1/paper/1.15.2/237/download
 
 get-paper: ## Download forge 1.15.2
