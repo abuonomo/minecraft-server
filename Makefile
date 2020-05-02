@@ -12,18 +12,8 @@ get-paper: ## Download forge 1.15.2
 	cd server; \
 	curl $(PAPER_URL) > paper.jar
 
-install: ## Install forge server
-	cd server; \
-	java -jar forge-installer.jar --installServer
-	@echo "Be sure to accept the eula before starting the server. It will not work if you have not accepted the eula."
-	@echo "Get recommended jar flags from https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/"
-
 backup: ## backup to remote drive directory
 	@echo "Do a backup"
-
-update-vanilla: ## download latest vanilla server jar
-	bash updatemcjar.sh -y --jar-path server.jar
-	@echo "If you are on a mac, this script's sha1sum will not work. You need to manually validate the download with shasum."
 
 run: ## Run the server as daemon and use auto-restarts
 	cd server; \
