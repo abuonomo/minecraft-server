@@ -10,7 +10,7 @@ get-paper: ## Download forge 1.15.2
 	cd server; \
 	curl $(PAPER_URL) > paper.jar
 
-backup: ## backup to remote drive directory
+backup: ## DEPRECATED: backup to remote drive directory
 	@echo "Do a backup"
 
 run: ## Run the server as daemon and use auto-restarts
