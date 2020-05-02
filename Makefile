@@ -5,6 +5,7 @@
 MKFILE_PATH := $(abspath $(firstword $(MAKEFILE_LIST)))
 MAKE_DIR := $(dir $(MKFILE_PATH))
 PAPER_URL=https://papermc.io/api/v1/paper/1.15.2/237/download
+RAM=10
 
 get-paper: ## Download forge 1.15.2
 	cd server; \
@@ -15,7 +16,7 @@ backup: ## DEPRECATED: backup to remote drive directory
 
 run: ## Run the server as daemon and use auto-restarts
 	cd server; \
-    java -Xms10G -Xmx10G -XX\:+UseG1GC -XX\:+ParallelRefProcEnabled \
+    java -Xms$(RAM)G -Xmx$(RAM)G -XX\:+UseG1GC -XX\:+ParallelRefProcEnabled \
     -XX\:MaxGCPauseMillis=200 -XX\:+UnlockExperimentalVMOptions \
     -XX\:+DisableExplicitGC -XX\:+AlwaysPreTouch -XX:G1NewSizePercent=30 \
     -XX\:G1MaxNewSizePercent=40 -XX\:G1HeapRegionSize=8M -XX\:G1ReservePercent=20 \
