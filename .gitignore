@@ -1,5 +1,10 @@
 server/*
+server.jar
+libraries/*
+*.json
 !server/.gitkeep
+*.jar
+*.log
 
 gdrive
 *.bak

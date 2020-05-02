@@ -45,3 +45,6 @@ Run the server with:
 make run
 ```
 
+## Installing mods
+Drop mod jar into the server/mods directory. If the directory does not exist, make it.
+
