@@ -1,50 +1,80 @@
 # Minecraft Server 
 
-This project helps you set up a minecraft-server docker container that uploads the server data to google drive whenever the machine shuts down.
-
-### TODO:
-- Need entirely new backup strategy. Gdrive tool does not work anymore. Need to take another route for automatic backups : (
-- server.jar should not be posted to repo, but update command does not work without it. There is surely a better way. 
+Convenience Makefile for running minecraft server.
 
 ## Installation
 *Note: this instructions were tested on amazon linux.*
 
+Simply run:
+```bash
+make get-paper run 
+```
+You will see a message like this:
+```txt
+You need to agree to the EULA in order to run the server. Go to eula.txt for more info.
+```
+You can agree to the eula by changing the value of `eula` in `server/eula.txt` from 'false' to `true`.
+Then run:
+```
+make run
+```
+The server should start running.
 
+## Configuration
+You can change the minecraft version to download by changing the MC_VERSION argument in the Makefile. For example, you could run:
+```bash
+make get-paper MC_VERSION=1.15
+```
+You can also changing the amount of ram allocated to the server with the RAM arg. For example:
+```bash
+make run RAM=1
+```
+
+See options with:
 ```bash
 make help
 ```
 
-Install requirements with:
-```bash
-make requirements
-```
+If you are running this server with an existing world, you must put your world data into the `server` directory with the name `world`. So you will have `server/world`.
 
-If you are running this server with an existing world, you must put your server data into the `server` directory so that the structure looks like this:
-```
-.
-├── Dockerfile
+The structure looks something like this:
+```txt
 ├── Makefile
 ├── README.md
+├── scratch
+│   ├── TODO
+│   ├── current_ip
+│   ├── env
+│   ├── minecraft_server.py
+│   └── start.sh
 ├── server
 │   ├── banned-ips.json
 │   ├── banned-players.json
+│   ├── bukkit.yml
+│   ├── cache
+│   ├── commands.yml
 │   ├── eula.txt
+│   ├── help.yml
 │   ├── logs
 │   ├── ops.json
+│   ├── paper.jar
+│   ├── paper.yml
+│   ├── permissions.yml
+│   ├── plugins
 │   ├── server.properties
+│   ├── spigot.yml
 │   ├── usercache.json
+│   ├── version_history.json
 │   ├── whitelist.json
-│   └── world
-├── server.jar
-├── start-server.sh
+│   ├── world
+│   ├── world_nether
+│   └── world_the_end
 └── updatemcjar.sh
 ```
 
-Run the server with:
-```bash
-make run
-```
+## Installing plguins
+Drop plugin jar into the server/plugins directory.
 
-## Installing mods
-Drop mod jar into the server/mods directory. If the directory does not exist, make it.
 
+### TODO:
+- Need entirely new backup strategy. Gdrive tool does not work anymore. Need to take another route for automatic backups : (

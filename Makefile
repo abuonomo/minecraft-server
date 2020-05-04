@@ -4,10 +4,11 @@
 
 MKFILE_PATH := $(abspath $(firstword $(MAKEFILE_LIST)))
 MAKE_DIR := $(dir $(MKFILE_PATH))
-PAPER_URL=https://papermc.io/api/v1/paper/1.15.2/237/download
-RAM=10
+MC_VERSION=1.15
+PAPER_URL=https://papermc.io/ci/job/Paper-$(MC_VERSION)/lastSuccessfulBuild/artifact/paperclip.jar
+RAM=2
 
-get-paper: ## Download forge 1.15.2
+get-paper: ## Download paper.jar
 	cd server; \
 	curl $(PAPER_URL) > paper.jar
 
