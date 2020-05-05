@@ -1,6 +1,6 @@
 # Minecraft Server 
 
-Convenience Makefile for running minecraft server.
+Convenience Makefile for running minecraft server. Uses [paper](https://papermc.io/).
 
 ## Installation
 *Note: this instructions were tested on amazon linux.*
@@ -65,8 +65,9 @@ The structure looks something like this:
 │   └── world_the_end
 └── updatemcjar.sh
 ```
+You might notice there are several world folders: `world`, `world_nether`, and `world_the_end`. Paper will automatically create the `world_nether` and `world_the_end` folders for you when running paper with a vanilla `world` folder. Read more [here](https://paper.readthedocs.io/en/latest/server/getting-started.html#migrating-from-vanilla).
 
-## Installing plguins
+## Installing plugins
 Drop plugin jar into the server/plugins directory.
 
 
