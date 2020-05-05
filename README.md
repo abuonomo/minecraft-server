@@ -41,12 +41,6 @@ The structure looks something like this:
 ```txt
 ├── Makefile
 ├── README.md
-├── scratch
-│   ├── TODO
-│   ├── current_ip
-│   ├── env
-│   ├── minecraft_server.py
-│   └── start.sh
 ├── server
 │   ├── banned-ips.json
 │   ├── banned-players.json
