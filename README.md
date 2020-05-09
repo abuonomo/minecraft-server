@@ -71,5 +71,25 @@ You might notice there are several world folders: `world`, `world_nether`, and `
 Drop plugin jar into the server/plugins directory.
 
 
+## Getting admin permissions
+
+Look up your UUID [here](https://mcuuid.net/) using your minecraft username.
+
+Then write to `ops.json` in server directory:
+```txt
+[
+  {
+    "uuid": "UUID-goes-here",
+    "name": "user1",
+    "level": 4
+  },
+  {
+    "uuid": "UUID-goes-here",
+    "name": "user2",
+    "level": 4
+  }
+]
+```
+
 ### TODO:
 - Need entirely new backup strategy. Gdrive tool does not work anymore. Need to take another route for automatic backups : (
